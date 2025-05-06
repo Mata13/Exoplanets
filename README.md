@@ -17,6 +17,8 @@ Este repositorio contiene todo el flujo de trabajo para explorar, procesar y vis
 3. **Dashboard interactivo** en Power BI (`.pbix`) con imágenes de ejemplo.  
 4. **Web App** con Streamlit para explorar el dataset limpio y visualizar métricas y gráficos dinámicos.
 
+Los datos se pueden descargar de manera gratuita desde la siguiente [!web](https://exoplanets.streamlit.app)https://exoplanet.eu/home/)
+
 ---
 
 ## 📁 Estructura del Repositorio
