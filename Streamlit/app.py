@@ -12,7 +12,7 @@ st.markdown("##")
 
 
 # Cargar datos
-df = pd.read_csv('df_clean_confirmed.csv')
+df = pd.read_csv('Exoplanets_confirmed.csv')
 
 # Muestra el dataset en streamlit
 #st.dataframe(df)
@@ -132,7 +132,7 @@ st.dataframe(filtered_df)
 st.markdown("""---""")
 
 
-############################ Filtro por método de detección ###########################
+############################ Filtro por Método de Detección ###########################
 
 # Extraemos el método de detección
 detection_type = df['detection_type'].unique()
@@ -148,7 +148,7 @@ st.write(f"Datos para el método de detección seleccionado: {selected_detection
 st.dataframe(filtered_df)
 
 
-############################ Gráfica de dispersión: masa vs radio ###########################
+############################ Gráfica de dispersión: Masa vs Radio ###########################
 
 # Creamos la gráfica
 fig3 = px.scatter(
@@ -165,7 +165,7 @@ fig3.update_layout(xaxis_type = "log", xaxis_title = "Masa [M Júpiter]", yaxis_
 fig3.update_traces(marker = dict(opacity = 0.7, line_width = 0.5))
 
 
-################## Gráfica de dispersión: excentricidad vs periodo orbital ###################
+################## Gráfica de dispersión: Excentricidad vs Periodo Orbital ###################
 fig4 = px.scatter(
 	filtered_df, # usamos los datos filtrados
 	x = "orbital_period",
@@ -184,20 +184,42 @@ one_column.plotly_chart(fig3, use_container_width = True)
 two_column.plotly_chart(fig4, use_container_width = True)
 
 
-####################### Gráfica de dispersión: masa vs Periodo Orbital ###################
+####################### Gráfica de dispersión: Masa vs Periodo Orbital ###################
 
-# Creamos la gráfica
-fig5 = px.scatter(
-	filtered_df, # usamos los datos filtrados por el user
-	x = "orbital_period",
-	y = "mass",
-	color = "detection_type",
-	#size = "semi_major_axis",
-	hover_data = ["name", "year"],
-	title = "Masa vs Periodo Orbital",
-)
+####################### Gráfica de dispersión: Radio vs Periodo Orbital ###################
 
-fig5.update_layout(xaxis_type = "log", yaxis_type = "log", xaxis_title = "Periodo Orbital [días]", yaxis_title = "Masa [M Júpiter]", legend_title_text = "Método de detección")
-fig5.update_traces(marker = dict(opacity = 0.7, line_width = 0.5))
+# Configuración de columnas
+c1, c2 = st.columns(2, gap = "large")  # 'gap' controla el espacio entre columnas
 
-st.plotly_chart(fig5, use_container_width=True)
+with c1:
+  # Creamos la gráfica
+	fig5 = px.scatter(
+		filtered_df, # usamos los datos filtrados por el user
+		x = "orbital_period",
+		y = "mass",
+		color = "detection_type",
+		#size = "semi_major_axis",
+		hover_data = ["name", "year"],
+		title = "Masa vs Periodo Orbital",
+	)
+
+	fig5.update_layout(xaxis_type = "log", yaxis_type = "log", xaxis_title = "Periodo Orbital [días]", yaxis_title = "Masa [M Júpiter]", legend_title_text = "Método de detección")
+	fig5.update_traces(marker = dict(opacity = 0.7, line_width = 0.5))
+	st.plotly_chart(fig5, use_container_width=True, key="scatter_mass")
+
+with c2:
+  # Creamos la gráfica
+	fig6 = px.scatter(
+		filtered_df, # usamos los datos filtrados por el user
+		x = "orbital_period",
+		y = "radius",
+		color = "detection_type",
+		hover_data = ["name", "year"],
+		title = "Radio vs Periodo Orbital"
+	)
+
+	fig6.update_layout(xaxis_type = "log", yaxis_type = "log", xaxis_title = "Periodo Orbital [días]", yaxis_title = "Radio [R Júpiter]", legend_title_text = "Método de detección")
+	fig6.update_traces(marker = dict(opacity = 0.7, line_width = 0.5))
+	st.plotly_chart(fig6, use_container_width=True, key="scatter_radius")
+
+st.markdown("""---""")
