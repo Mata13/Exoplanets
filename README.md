@@ -51,7 +51,9 @@ Visualización interactiva creada con **Power BI Desktop**.
 
 ## 🚀 Streamlit App
 
-La carpeta **Streamlit** contiene la **web app** desplegable en Streamlit Cloud.  
+La carpeta **Streamlit** contiene la **web app** desplegable en Streamlit Cloud.
+
+En el siguiente [enlace](https://dashboard-exoplanes.streamlit.app/) puedes ver el dashboard desplegado en la nube.
 - **app.py**: lógica de carga, filtros en sidebar, gráficos con Plotly.  
 - **requirements.txt**: dependencias (Streamlit, Pandas, Plotly, etc.).  
 - **screenshot_streamlit.png**:  
