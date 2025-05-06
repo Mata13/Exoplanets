@@ -41,7 +41,7 @@ Este repositorio contiene todo el flujo de trabajo para explorar, procesar y vis
 ## 📈 Power BI Dashboard
 
 Visualización interactiva creada con **Power BI Desktop**.  
-![Vista general del dashboard](Power%20BI/dashboard_overview.png)   
+![Vista general del dashboard](Dashboard1_powerbi.png)   
 
 *Usé slicers para filtrar por año, método de detección y estado del planeta.*
 
@@ -53,7 +53,8 @@ La carpeta **Streamlit** contiene la **web app** desplegable en Streamlit Cloud.
 - **app.py**: lógica de carga, filtros en sidebar, gráficos con Plotly.  
 - **requirements.txt**: dependencias (Streamlit, Pandas, Plotly, etc.).  
 - **screenshot_streamlit.png**:  
-  ![App Streamlit](Streamlit/screenshot_streamlit.png)
+  ![App Streamlit](Dashboard1_streamlit.png)
+  ![App Streamlit](Dashboard2_streamlit.png)
 
 ## License
 This project is licensed under the MIT License. See the [MIT License](LICENSE.txt) file for more details.
